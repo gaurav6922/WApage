@@ -1,0 +1,145 @@
+/* ============================================
+   Responsive Styles
+   ============================================ */
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 56px;
+  }
+
+  .navbar-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 48px 0 64px;
+    min-height: auto;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta,
+  .hero-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .phone-frame {
+    width: 260px;
+    height: 480px;
+  }
+
+  .floating-card {
+    display: none;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .step-arrow {
+    display: none;
+  }
+
+  .step-card {
+    padding: 24px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wide-feature {
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px 24px;
+  }
+
+  .demo-content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .chat-widget {
+    max-width: 100%;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-card.featured {
+    order: -1;
+    transform: none;
+  }
+
+  .testimonial-card {
+    width: 100%;
+  }
+
+  .carousel-nav {
+    width: 36px;
+    height: 36px;
+  }
+
+  .carousel-prev {
+    left: -10px;
+  }
+
+  .carousel-next {
+    right: -10px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .cta-heading {
+    font-size: 32px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}

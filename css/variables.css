@@ -1,0 +1,63 @@
+/* ============================================
+   CSS Variables - ClinicBot Design System
+   ============================================ */
+
+:root {
+  /* Colors */
+  --primary: #0B7A63;
+  --primary-dark: #085C4A;
+  --primary-light: #E1F5EE;
+  --primary-mid: #1D9E75;
+
+  --text-primary: #0F1A14;
+  --text-secondary: #3D4D45;
+  --text-muted: #6B7C74;
+  --text-inverse: #FFFFFF;
+
+  --bg-white: #FFFFFF;
+  --bg-surface: #F4FAF7;
+  --bg-dark: #0A1612;
+
+  --border-color: rgba(11, 122, 99, 0.12);
+  --border-strong: rgba(11, 122, 99, 0.25);
+
+  --success: #16A34A;
+  --warning: #D97706;
+  --danger: #DC2626;
+  --info: #2563EB;
+
+  --whatsapp-green: #25D366;
+  --whatsapp-dark: #075E54;
+  --whatsapp-bubble: #DCF8C6;
+  --whatsapp-bg: #ECE5DD;
+
+  /* Typography */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+  --text-4xl: 40px;
+  --text-5xl: 52px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.04);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+}

@@ -1,0 +1,11 @@
+/* ============================================
+   ClinicBot - Main Stylesheet
+   Imports all CSS modules in order
+   ============================================ */
+
+@import "variables.css";
+@import "base.css";
+@import "animations.css";
+@import "components.css";
+@import "sections.css";
+@import "responsive.css";

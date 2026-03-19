@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WhatsApp appointment booking bot for doctors in India. Automate bookings, reminders, and patient records. Setup in 15 minutes. Free 7-day trial.">
+  <title>ClinicBot — WhatsApp Appointment Booking for Doctors</title>
+
+  <meta property="og:title" content="ClinicBot — WhatsApp Booking for Doctors in India">
+  <meta property="og:description" content="Automate your clinic bookings on WhatsApp. Hindi + English. Setup in 15 minutes.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="navbar-logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="22" r="5" stroke="var(--primary)" stroke-width="2"/>
+          <circle cx="16" cy="22" r="2" fill="var(--primary)"/>
+          <path d="M16 17 L16 10 Q16 6 12 6 L10 6" stroke="var(--primary)" stroke-width="2" fill="none"/>
+          <path d="M16 17 L16 10 Q16 6 20 6 L22 6" stroke="var(--primary)" stroke-width="2" fill="none"/>
+          <circle cx="10" cy="6" r="2" fill="var(--primary)"/>
+          <circle cx="22" cy="6" r="2" fill="var(--primary)"/>
+        </svg>
+        <h1>ClinicBot</h1>
+      </a>
+
+      <div class="navbar-nav">
+        <a href="#how-it-works">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#testimonials">Testimonials</a>
+      </div>
+
+      <div class="navbar-actions">
+        <a href="#" class="navbar-signin">Sign in</a>
+        <button class="navbar-cta">Start free trial</button>
+        <div class="hamburger" id="hamburger">
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <ul class="mobile-nav">
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+    </ul>
+    <div class="mobile-actions">
+      <a href="#" class="navbar-signin">Sign in</a>
+      <button class="navbar-cta">Start free trial</button>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container" style="display: contents;">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <div class="pulse-dots">
+            <div class="pulse-dot"></div>
+            <div class="pulse-dot"></div>
+            <div class="pulse-dot"></div>
+          </div>
+          <span>Trusted by 500+ doctors across India</span>
+        </div>
+
+        <h1 class="hero-title">
+          Your patients book<br>
+          on <span class="whatsapp-highlight">WhatsApp.</span><br>
+          You focus on healing.
+        </h1>
+
+        <p class="hero-subtitle">
+          Stop missing calls. Stop managing a register. Let your bot handle bookings, reminders, and patient records — automatically, in Hindi or English, 24 hours a day.
+        </p>
+
+        <div class="hero-actions">
+          <button class="hero-cta">Start free trial →</button>
+          <a href="#how-it-works" class="hero-secondary">See how it works ↓</a>
+        </div>
+
+        <div class="hero-social">
+          <div class="avatar-stack">
+            <div class="avatar avatar-pm">PM</div>
+            <div class="avatar avatar-rg">RG</div>
+            <div class="avatar avatar-as">AS</div>
+          </div>
+          <div class="social-proof-text">
+            <div class="stars">★★★★★</div>
+            <div class="rating-text">4.9/5 from 127 doctors</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-mockup">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="whatsapp-header">
+            <span class="whatsapp-back">←</span>
+            <div class="whatsapp-avatar">DS</div>
+            <div class="whatsapp-info">
+              <h4>Dr. Sharma Clinic</h4>
+              <div class="whatsapp-status">Online</div>
+            </div>
+            <div class="whatsapp-icons">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                <polygon points="2 7 12 13 22 7"></polygon>
+              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="chat-area">
+            <div class="chat-message incoming">
+              Hello, appointment chahiye
+              <span class="message-time">10:02</span>
+            </div>
+            <div class="chat-message outgoing">
+              Namaste! 😊
+
+Dr. Sharma Clinic ke available slots:
+1️⃣  11:00 AM
+2️⃣  12:30 PM
+3️⃣  5:00 PM
+
+Konsa time book karein?
+              <span class="message-time">10:02 <span class="message-tick">✓✓</span></span>
+            </div>
+            <div class="chat-message incoming">
+              5 baje
+              <span class="message-time">10:03</span>
+            </div>
+            <div class="chat-message outgoing">
+              ✅ Confirmed!
+📅 Aaj, 5:00 PM
+🏥 Dr. Sharma Clinic
+📍 Green Park, Delhi
+
+Reminder 2 ghante pehle aayega. 🙏
+              <span class="message-time">10:03 <span class="message-tick">✓✓</span></span>
+            </div>
+            <div class="chat-message incoming">
+              Thank you! 🙏
+              <span class="message-time">10:03</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="floating-card notification-card">
+          <div class="notification-top">
+            <div class="notification-dot"></div>
+            New booking
+          </div>
+          <div class="notification-bottom">Ravi Kumar · 5:00 PM</div>
+        </div>
+
+        <div class="floating-card stat-card">
+          <div class="stat-title">📉 No-shows reduced</div>
+          <div class="stat-value">28% → 6% this month</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Bar -->
+  <div class="social-proof-bar">
+    <div class="container" style="display: contents;">
+      <div class="social-proof-label">Doctors from across India</div>
+      <div class="marquee-container">
+        <div class="marquee-track">
+          <span class="marquee-item">Mumbai</span>
+          <span class="marquee-item">Delhi</span>
+          <span class="marquee-item">Bangalore</span>
+          <span class="marquee-item">Hyderabad</span>
+          <span class="marquee-item">Chennai</span>
+          <span class="marquee-item">Pune</span>
+          <span class="marquee-item">Jaipur</span>
+          <span class="marquee-item">Lucknow</span>
+          <span class="marquee-item">Surat</span>
+          <span class="marquee-item">Patna</span>
+          <span class="marquee-item">Chandigarh</span>
+          <span class="marquee-item">Kochi</span>
+          <span class="marquee-item">Indore</span>
+          <span class="marquee-item">Bhopal</span>
+          <span class="marquee-item">Nagpur</span>
+          <span class="marquee-item">Ahmedabad</span>
+          <span class="marquee-item">Kolkata</span>
+          <span class="marquee-item">Agra</span>
+          <span class="marquee-item">Mumbai</span>
+          <span class="marquee-item">Delhi</span>
+          <span class="marquee-item">Bangalore</span>
+          <span class="marquee-item">Hyderabad</span>
+          <span class="marquee-item">Chennai</span>
+          <span class="marquee-item">Pune</span>
+          <span class="marquee-item">Jaipur</span>
+          <span class="marquee-item">Lucknow</span>
+          <span class="marquee-item">Surat</span>
+          <span class="marquee-item">Patna</span>
+          <span class="marquee-item">Chandigarh</span>
+          <span class="marquee-item">Kochi</span>
+          <span class="marquee-item">Indore</span>
+          <span class="marquee-item">Bhopal</span>
+          <span class="marquee-item">Nagpur</span>
+          <span class="marquee-item">Ahmedabad</span>
+          <span class="marquee-item">Kolkata</span>
+          <span class="marquee-item">Agra</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How It Works -->
+  <section class="section" id="how-it-works" style="background: var(--bg-white);">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="section-label animate-ready">HOW IT WORKS</span>
+        <h2 class="section-title animate-ready delay-1">Setup in 15 minutes. Forever automated.</h2>
+        <p class="section-subtitle animate-ready delay-2">No technical knowledge needed. We guide you through every step.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card animate-ready delay-1">
+          <div class="step-number">01</div>
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+          </div>
+          <h3 class="step-title">Connect your WhatsApp</h3>
+          <p class="step-description">Link your clinic's dedicated WhatsApp number in minutes. We guide you through every step of the verification process.</p>
+          <svg class="step-arrow" width="40" height="20" viewBox="0 0 40 20" fill="none">
+            <path d="M0 10 L35 10 M30 5 L35 10 L30 15" stroke="var(--border-strong)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          </svg>
+        </div>
+
+        <div class="step-card animate-ready delay-2">
+          <div class="step-number">02</div>
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <h3 class="step-title">Set your schedule</h3>
+          <p class="step-description">Tell the bot your working hours, slot duration, lunch break, and max patients per day. Done once, runs forever.</p>
+          <svg class="step-arrow" width="40" height="20" viewBox="0 0 40 20" fill="none">
+            <path d="M0 10 L35 10 M30 5 L35 10 L30 15" stroke="var(--border-strong)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          </svg>
+        </div>
+
+        <div class="step-card animate-ready delay-3">
+          <div class="step-number">03</div>
+          <div class="step-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+          </div>
+          <h3 class="step-title">Watch bookings arrive</h3>
+          <p class="step-description">Patients message in Hindi or English. The bot books, confirms, and reminds — day and night, with zero effort from you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section" id="features" style="background: var(--bg-surface);">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="section-label animate-ready">FEATURES</span>
+        <h2 class="section-title animate-ready delay-1">Everything your clinic needs.</h2>
+        <p class="section-subtitle animate-ready delay-2">Built specifically for Indian doctors. No fluff. No complexity.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card animate-ready delay-1">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              <circle cx="12" cy="11" r="4" stroke="var(--primary)" fill="none"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">WhatsApp Bot Booking</h3>
+          <p class="feature-description">Patients book in Hindi, English, or Hinglish. No app download needed. Instant confirmation sent immediately after booking.</p>
+        </div>
+
+        <div class="feature-card animate-ready delay-2">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              <polyline points="17 8 17 6 19 6"></polyline>
+            </svg>
+          </div>
+          <h3 class="feature-title">Smart Reminders</h3>
+          <p class="feature-description">Automated reminders 24 hours and 2 hours before every appointment. No-show rates drop by 20–35% in the first month.</p>
+        </div>
+
+        <div class="feature-card animate-ready delay-3">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3 class="feature-title">Doctor Dashboard</h3>
+          <p class="feature-description">See today's full queue at a glance. Patient history, chief complaints, and notes — before they walk in.</p>
+        </div>
+
+        <div class="feature-card animate-ready delay-1">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+              <rect x="16" y="11" width="6" height="8" rx="1"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Patient Records</h3>
+          <p class="feature-description">Every WhatsApp conversation builds a patient profile automatically. Visit history and doctor notes — organised and searchable.</p>
+        </div>
+
+        <div class="feature-card animate-ready delay-2">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5">
+              <line x1="12" y1="20" x2="12" y2="10"></line>
+              <line x1="18" y1="20" x2="18" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="16"></line>
+            </svg>
+          </div>
+          <h3 class="feature-title">Analytics & Insights</h3>
+          <p class="feature-description">Busiest days, no-show trends, bot conversion rates. Know your clinic's numbers without running a single report.</p>
+        </div>
+
+        <div class="feature-card animate-ready delay-3">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 6v6l4 2"></path>
+              <path d="M16 8h3M16 16h3"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Hindi + Regional Languages</h3>
+          <p class="feature-description">Bot auto-detects the patient's language. Supports Hindi, Hinglish, Tamil, and Marathi. Every patient in every city.</p>
+        </div>
+
+        <div class="wide-feature animate-ready delay-4">
+          <div class="wide-feature-content">
+            <div class="wide-feature-eyebrow">Your data. Your patients. Your number.</div>
+            <h3 class="wide-feature-title">You own the relationship. Not us.</h3>
+            <p class="wide-feature-description">Unlike marketplace platforms, your WhatsApp number belongs to you. Your patient list is yours. Export it anytime. We are a tool — not a marketplace taking a cut of your patients.</p>
+          </div>
+          <div>
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+              <circle cx="60" cy="60" r="60" fill="rgba(255, 255, 255, 0.12)"/>
+              <path d="M60 30 L45 45 L45 75 L60 90 L75 75 L75 45 Z" fill="white" opacity="0.9"/>
+              <rect x="50" y="50" width="20" height="25" rx="3" fill="white" opacity="0.9"/>
+              <circle cx="60" cy="57" r="3" fill="var(--primary)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Demo -->
+  <section class="section demo-section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <h2 class="section-title" style="color: white;">See it working right now.</h2>
+        <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8); margin-bottom: 0;">Tap a message to see how patients experience your bot.</p>
+      </div>
+
+      <div class="demo-content">
+        <div class="chat-widget">
+          <div class="chat-header">
+            <div class="chat-avatar">DC</div>
+            <div class="chat-info">
+              <h4>Dr. Sharma's Bot</h4>
+              <div class="chat-online">Online</div>
+            </div>
+            <div class="chat-signals">
+              <div class="signal-dot"></div>
+              <div class="signal-dot" style="animation-delay: 0.2s;"></div>
+              <div class="signal-dot" style="animation-delay: 0.4s;"></div>
+            </div>
+          </div>
+          <div class="chat-messages" id="chatMessages">
+            <div class="demo-message bot">Namaste! 😊 Dr. Sharma Clinic mein aapka swagat hai. Main aapki appointment book karne mein help kar sakta hoon!</div>
+            <div class="typing-indicator" id="typingIndicator">
+              <div class="typing-dot"></div>
+              <div class="typing-dot"></div>
+              <div class="typing-dot"></div>
+            </div>
+          </div>
+          <div class="quick-replies">
+            <button class="quick-reply-btn" data-message="Appointment chahiye">Appointment chahiye</button>
+            <button class="quick-reply-btn" data-message="Kal ka slot?">Kal ka slot?</button>
+            <button class="quick-reply-btn" data-message="Cancel karna hai">Cancel karna hai</button>
+            <button class="quick-reply-btn" data-message="Kab available hain?">Kab available hain?</button>
+          </div>
+        </div>
+
+        <div class="demo-stats">
+          <div class="stat-block">
+            <div class="stat-number" data-target="35" data-suffix="%">0%</div>
+            <div class="stat-label">Average reduction in no-shows within 30 days</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-number" data-target="15" data-suffix=" min">0 min</div>
+            <div class="stat-label">Average time to set up your clinic bot</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-number" data-target="24" data-suffix="/7">0/7</div>
+            <div class="stat-label">Bot works even when your clinic is closed</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-number" data-target="500" data-suffix="+">0+</div>
+            <div class="stat-label">Doctors already using ClinicBot across India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section" id="pricing" style="background: var(--bg-white);">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="section-label animate-ready">PRICING</span>
+        <h2 class="section-title animate-ready delay-1">Simple, honest pricing.</h2>
+        <p class="section-subtitle animate-ready delay-2" style="margin-bottom: 32px;">No hidden fees. No per-appointment charges. Start free. Cancel anytime.</p>
+
+        <div class="pricing-toggle">
+          <span>Monthly</span>
+          <div class="toggle-switch" id="billingToggle">
+            <div class="toggle-knob"></div>
+          </div>
+          <span>Yearly</span>
+          <span class="save-badge">Save 20%</span>
+        </div>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card animate-ready delay-1">
+          <div class="plan-name">Starter</div>
+          <div class="plan-sub">For solo doctors</div>
+          <div class="plan-price">
+            <span class="price-currency">₹</span><span class="price-amount" data-monthly="999" data-yearly="799">999</span><span class="price-period">/month</span>
+          </div>
+          <button class="plan-cta outlined">Start free trial</button>
+          <ul class="feature-list">
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">WhatsApp bot booking</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Automated reminders</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Patient records (500 patients)</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Today's queue dashboard</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Hindi + English support</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">200 appointments/month</div></li>
+            <li class="feature-item disabled"><div class="feature-check no">✗</div><div class="feature-text">Analytics dashboard</div></li>
+            <li class="feature-item disabled"><div class="feature-check no">✗</div><div class="feature-text">Staff logins</div></li>
+          </ul>
+        </div>
+
+        <div class="pricing-card featured animate-ready delay-2">
+          <div class="popular-badge">Most popular</div>
+          <div class="plan-name">Growth</div>
+          <div class="plan-sub">For growing clinics</div>
+          <div class="plan-price">
+            <span class="price-currency">₹</span><span class="price-amount" data-monthly="1,999" data-yearly="1,599">1,999</span><span class="price-period">/month</span>
+          </div>
+          <button class="plan-cta filled">Start free trial</button>
+          <div class="plan-note">Most doctors recover this in 2 prevented no-shows</div>
+          <ul class="feature-list">
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Everything in Starter</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Unlimited appointments</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Unlimited patient records</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Full analytics dashboard</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">3 staff logins</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">No-show risk scoring</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Post-visit follow-up flows</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Priority WhatsApp support</div></li>
+          </ul>
+        </div>
+
+        <div class="pricing-card animate-ready delay-3">
+          <div class="plan-name">Pro</div>
+          <div class="plan-sub">For multi-doctor clinics</div>
+          <div class="plan-price">
+            <span class="price-currency">₹</span><span class="price-amount" data-monthly="3,499" data-yearly="2,799">3,499</span><span class="price-period">/month</span>
+          </div>
+          <button class="plan-cta outlined">Contact us</button>
+          <ul class="feature-list">
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Everything in Growth</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Multiple doctors</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Multiple locations</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Custom bot flows</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">API access</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Dedicated onboarding call</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">SLA-backed support</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pricing-footer">
+        ✓ 7-day free trial · ✓ No credit card required · ✓ Cancel anytime
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" id="testimonials" style="background: var(--bg-surface);">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="section-label animate-ready">TESTIMONIALS</span>
+        <h2 class="section-title animate-ready delay-1">Doctors love it.</h2>
+        <p class="section-subtitle animate-ready delay-2">Real doctors. Real results. Real Hindi.</p>
+      </div>
+
+      <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="testimonial-card">
+            <div class="quote-mark">"</div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">We reduced no-shows from 28% to just 6% in the first month. The 2-hour reminder is magic.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: #0B7A63;">PM</div>
+              <div class="author-info">
+                <div class="author-name">Dr. Priya Mehta</div>
+                <div class="author-role">Pediatrician, Mumbai</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="quote-mark">"</div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">Maine 15 saal se register mein appointments likhe hain. Ab WhatsApp bot sab karta hai. Bahut acha hai!</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: #2563EB;">RG</div>
+              <div class="author-info">
+                <div class="author-name">Dr. Ramesh Gupta</div>
+                <div class="author-role">General Physician, Lucknow</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="quote-mark">"</div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">My receptionist spent 2 hours answering calls. Now she focuses on patients in the clinic. Worth every rupee.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: #D97706;">AS</div>
+              <div class="author-info">
+                <div class="author-name">Dr. Anjali Sharma</div>
+                <div class="author-role">Gynecologist, Delhi</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="quote-mark">"</div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">Setup took 10 minutes. Same day, 3 patients booked via WhatsApp. I couldn't believe it was that easy.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: #7C3AED;">KR</div>
+              <div class="author-info">
+                <div class="author-name">Dr. Kiran Rao</div>
+                <div class="author-role">Dermatologist, Hyderabad</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="quote-mark">"</div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">The dashboard shows each patient's history before they walk in. I feel prepared for every consultation.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: #059669;">SJ</div>
+              <div class="author-info">
+                <div class="author-name">Dr. Sunil Joshi</div>
+                <div class="author-role">Cardiologist, Pune</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="quote-mark">"</div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">Hindi mein booking accept karna game changer hai mere Tier 2 city ke patients ke liye.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background: #DC2626;">AV</div>
+              <div class="author-info">
+                <div class="author-name">Dr. Amit Verma</div>
+                <div class="author-role">Orthopedic, Jaipur</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-nav carousel-prev" id="carouselPrev">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="carousel-nav carousel-next" id="carouselNext">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background: var(--bg-white); padding: 80px 0;">
+    <div class="container">
+      <h2 class="section-title" style="text-align: center; margin-bottom: 48px;">Frequently asked questions</h2>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <div class="faq-question-text">Do my patients need to download any app?</div>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">No. Patients simply message your clinic's WhatsApp number — the same app they already have. There is nothing to download, sign up for, or learn on their side.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <div class="faq-question-text">Which WhatsApp do I need?</div>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">You need a dedicated phone number for the clinic bot, connected through WhatsApp Business API. We guide you through the full setup process — it takes about 10 minutes and we are with you every step of the way.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <div class="faq-question-text">Can patients book in Hindi?</div>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">Yes. The bot automatically detects whether the patient is writing in Hindi, Hinglish, or English and responds in the same language. We support Hindi, Hinglish, Tamil, and Marathi at launch, with more languages coming.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <div class="faq-question-text">What if I have existing patients in a register?</div>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">You don't need to import anything. The bot builds patient profiles automatically from the very first booking. Your existing patients simply start using the WhatsApp number from their next appointment.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <div class="faq-question-text">Is my patient data safe?</div>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">Yes. All patient data is stored on servers in India, encrypted at rest and in transit. We never share or sell patient data. You own your complete patient list and can export it at any time.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <div class="faq-question-text">Can I use my existing clinic WhatsApp number?</div>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">If your existing number is already on WhatsApp Business API, yes. If it's on regular WhatsApp or the free Business app, we support the migration process completely.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <div class="faq-question-text">What if I want to cancel?</div>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">Cancel any time directly from your dashboard — no phone calls, no forms, no questions asked. Your data remains available for export for 30 days after cancellation.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <div class="faq-question-text">Is there a free trial?</div>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">Yes — 7 days completely free with no credit card required. You get full access to all Growth plan features during your trial.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="cta-eyebrow">Join 500+ doctors</div>
+      <h2 class="cta-heading">Your clinic deserves better.</h2>
+      <p class="cta-subheading">Join 500+ doctors who've automated their bookings. Set up in 15 minutes. 7 days free.</p>
+      <a href="#" class="cta-button">Start your free 7-day trial →</a>
+      <div class="cta-trust">No credit card required · Cancel anytime · Setup in 15 minutes</div>
+      <a href="#" class="cta-whatsapp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        Questions? Message us on WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="22" r="5" stroke="white" stroke-width="2"/>
+              <circle cx="16" cy="22" r="2" fill="white"/>
+              <path d="M16 17 L16 10 Q16 6 12 6 L10 6" stroke="white" stroke-width="2" fill="none"/>
+              <path d="M16 17 L16 10 Q16 6 20 6 L22 6" stroke="white" stroke-width="2" fill="none"/>
+              <circle cx="10" cy="6" r="2" fill="white"/>
+              <circle cx="22" cy="6" r="2" fill="white"/>
+            </svg>
+            <h3>ClinicBot</h3>
+          </div>
+          <p class="footer-tagline">Smart appointment booking for modern Indian clinics.</p>
+          <div class="footer-social">
+            <a href="#" class="social-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Product</h4>
+          <ul class="footer-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#">Changelog</a></li>
+            <li><a href="#">Security</a></li>
+            <li><a href="#">API docs</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Partner program</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Data Processing</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Refund Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copyright">© 2026 ClinicBot Technologies Pvt. Ltd. All rights reserved.</div>
+        <div class="footer-compliance">🇮🇳 Built in India · Data stored in India · DPDP compliant</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
