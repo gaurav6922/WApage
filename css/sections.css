@@ -10,13 +10,14 @@
 .hero {
   min-height: 88vh;
   background: var(--bg-white);
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 64px;
   padding: 80px 24px;
+  box-sizing: border-box;
 }
 
 .hero::before {
@@ -38,6 +39,8 @@
 .hero-content {
   position: relative;
   z-index: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .hero-badge {
@@ -83,6 +86,8 @@
   margin-bottom: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .whatsapp-highlight {
@@ -96,6 +101,8 @@
   max-width: 500px;
   margin-bottom: 36px;
   font-weight: 400;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .hero-actions {
@@ -199,6 +206,7 @@
   position: relative;
   display: flex;
   justify-content: center;
+  min-width: 0;
   align-items: center;
 }
 
