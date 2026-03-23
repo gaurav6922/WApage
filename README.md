@@ -1,6 +1,6 @@
-# ClinicBot — WhatsApp Appointment Booking for Doctors
+# MediDesk, WhatsApp Appointment Booking for Doctors
 
-Landing page for ClinicBot, a WhatsApp appointment booking bot for doctors in India.
+Landing page for MediDesk, a WhatsApp appointment booking bot for doctors in India.
 
 ## Project Structure
 

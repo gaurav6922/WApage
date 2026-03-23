@@ -71,6 +71,8 @@
 }
 
 .navbar-cta {
+  display: inline-block;
+  text-decoration: none;
   background: var(--primary);
   color: white;
   font-size: 14px;
@@ -206,4 +208,153 @@
   font-size: var(--text-lg);
   color: var(--text-muted);
   margin-bottom: 64px;
+}
+
+/* Trial Modal */
+.trial-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms, visibility 300ms;
+}
+
+.trial-modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.trial-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.trial-modal-content {
+  position: relative;
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: var(--shadow-xl);
+}
+
+.trial-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--bg-surface);
+  border-radius: var(--radius-full);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.trial-modal-close:hover {
+  color: var(--text-primary);
+  background: var(--border-color);
+}
+
+.trial-modal-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.trial-modal-subtitle {
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.trial-success-msg {
+  color: var(--primary);
+  font-weight: 600;
+  margin: 0;
+  padding: 20px 0;
+}
+
+.trial-error-msg {
+  color: #dc2626;
+  margin: 0 0 16px 0;
+}
+
+/* Hide Formspree default success/error injection in trial modal */
+.trial-modal [data-fs-success][data-fs-active],
+.trial-modal [data-fs-error=""][data-fs-active] {
+  display: none !important;
+}
+
+.trial-form .trial-form-group {
+  margin-bottom: 16px;
+}
+
+.trial-form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.trial-form input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  transition: border-color var(--transition-fast);
+}
+
+.trial-form input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.trial-form select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  background: white;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.trial-form select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.trial-form-submit {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+  background: var(--primary);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.trial-form-submit:hover {
+  background: var(--primary-dark);
 }

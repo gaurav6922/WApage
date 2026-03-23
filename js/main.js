@@ -1,5 +1,5 @@
 /* ============================================
-   ClinicBot - Main JavaScript
+   MediDesk - Main JavaScript
    ============================================ */
 
 // Navbar scroll effect
@@ -33,59 +33,133 @@ document.querySelectorAll(".mobile-nav a").forEach((link) => {
 
 // Chat demo
 const botResponses = {
-  "Appointment chahiye":
-    "Aaj ke available slots:\n\n1️⃣ 10:30 AM\n2️⃣ 1:00 PM\n3️⃣ 4:30 PM\n4️⃣ 5:00 PM\n\nKonsa time book karein?",
-  "Kal ka slot?":
-    "Kal ke available slots:\n\n🕙 10:00 AM ✓\n🕙 10:30 AM ✓\n🕚 11:30 AM ✓\n🕒 3:00 PM ✓\n\nSlot number reply karein.",
-  "Cancel karna hai":
-    "Appointment cancel karne ke liye apna Appointment ID share karein.\n(e.g. #1042)\n\nYa 'list' type karein upcoming appointments dekhne ke liye.",
-  "Kab available hain?":
-    "Aaj ke available slots:\n\n✅ 11:00 AM\n✅ 2:30 PM\n✅ 5:00 PM\n✅ 6:00 PM\n\nKonsa time theek rahega? 😊",
+  "Hi":
+    "Welcome to TeethWhite. Tap an option:\n\n▸ Book Appointment\n▸ Clinic Address\n▸ Talk to Staff",
+  "Book Appointment": null,
+  "Clinic Address":
+    "Clinic address: We can add your clinic address here.",
+  "Talk to Staff":
+    "A team member will respond shortly. For urgent matters, please call us.",
 };
 
 const chatMessages = document.getElementById("chatMessages");
 const typingIndicator = document.getElementById("typingIndicator");
 const quickReplyButtons = document.querySelectorAll(".quick-reply-btn");
 
+const slotOptions = [
+  "Mon, Mar 9 2:30 PM",
+  "Mon, Mar 9 3:00 PM",
+  "Mon, Mar 9 3:30 PM",
+  "Mon, Mar 9 5:30 PM",
+  "Tue, Mar 10 10:00 AM",
+];
+
+const REPLY_ICON =
+  '<svg class="demo-menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10V4h7M3 10l6-6M3 10h10a6 6 0 0 1 6 6"/></svg>';
+const LIST_ICON =
+  '<svg class="demo-slot-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>';
+
+function createMenuBubble() {
+  const menu = document.createElement("div");
+  menu.className = "demo-message bot demo-menu-bubble";
+  menu.innerHTML =
+    'Welcome to TeethWhite. Tap an option:<div class="demo-menu-options">' +
+    '<button type="button" class="demo-menu-option" data-message="Book Appointment">' + REPLY_ICON + 'Book Appointment</button>' +
+    '<button type="button" class="demo-menu-option" data-message="Clinic Address">' + REPLY_ICON + 'Clinic Address</button>' +
+    '<button type="button" class="demo-menu-option" data-message="Talk to Staff">' + REPLY_ICON + 'Talk to Staff</button></div>';
+  return menu;
+}
+
+function createSlotBubble() {
+  const bubble = document.createElement("div");
+  bubble.className = "demo-message bot demo-slot-bubble";
+  bubble.innerHTML =
+    'Book appointment<br>Select a preferred date/time:<div class="demo-slot-choose-row">' +
+    '<button type="button" class="demo-choose-slot-btn"><span class="demo-choose-slot-icon">' + LIST_ICON + '</span>Choose slot</button></div>' +
+    '<div class="demo-slot-list expanded">' +
+    slotOptions.map((s) => '<button type="button" class="demo-slot-option" data-slot="' + s + '">' + REPLY_ICON + s + '</button>').join("") +
+    "</div>";
+  return bubble;
+}
+
+function addBotResponse(container, message) {
+  if (message === "Hi") {
+    container.appendChild(createMenuBubble());
+  } else if (message === "Book Appointment") {
+    container.appendChild(createSlotBubble());
+  } else {
+    const botMsg = document.createElement("div");
+    botMsg.className = "demo-message bot";
+    botMsg.textContent = botResponses[message];
+    container.appendChild(botMsg);
+  }
+}
+
+function handleMenuOptionClick() {
+  const message = this.getAttribute("data-message");
+  sendMessage(message);
+}
+
+function sendMessage(message) {
+  quickReplyButtons.forEach((b) => (b.disabled = true));
+
+  const userMsg = document.createElement("div");
+  userMsg.className = "demo-message user";
+  userMsg.textContent = message;
+  chatMessages.appendChild(userMsg);
+
+  typingIndicator.classList.add("show");
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+
+  setTimeout(() => {
+    typingIndicator.classList.remove("show");
+    addBotResponse(chatMessages, message);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    quickReplyButtons.forEach((b) => (b.disabled = false));
+
+    const messages = chatMessages.querySelectorAll(".demo-message");
+    if (messages.length > 10) {
+      messages[0].remove();
+      messages[1].remove();
+    }
+  }, 900);
+}
+
 quickReplyButtons.forEach((btn) => {
   btn.addEventListener("click", function () {
-    const message = this.getAttribute("data-message");
-
-    // Disable all buttons
-    quickReplyButtons.forEach((b) => (b.disabled = true));
-
-    // Add user message
-    const userMsg = document.createElement("div");
-    userMsg.className = "demo-message user";
-    userMsg.textContent = message;
-    chatMessages.appendChild(userMsg);
-
-    // Show typing indicator
-    typingIndicator.classList.add("show");
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-
-    // After delay, show bot response
-    setTimeout(() => {
-      typingIndicator.classList.remove("show");
-
-      const botMsg = document.createElement("div");
-      botMsg.className = "demo-message bot";
-      botMsg.textContent = botResponses[message];
-      chatMessages.appendChild(botMsg);
-
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-
-      // Re-enable buttons
-      quickReplyButtons.forEach((b) => (b.disabled = false));
-
-      // Keep max 8 messages
-      const messages = chatMessages.querySelectorAll(".demo-message");
-      if (messages.length > 8) {
-        messages[0].remove();
-        messages[1].remove();
-      }
-    }, 900);
+    sendMessage(this.getAttribute("data-message"));
   });
+});
+
+function showSlotConfirmation(slot) {
+  quickReplyButtons.forEach((b) => (b.disabled = true));
+  const userMsg = document.createElement("div");
+  userMsg.className = "demo-message user";
+  userMsg.textContent = slot;
+  chatMessages.appendChild(userMsg);
+
+  typingIndicator.classList.add("show");
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+
+  setTimeout(() => {
+    typingIndicator.classList.remove("show");
+    const confirmMsg = document.createElement("div");
+    confirmMsg.className = "demo-message bot";
+    confirmMsg.textContent =
+      "Your appointment is confirmed for " + slot + ". Reply YES if you need help.";
+    chatMessages.appendChild(confirmMsg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    quickReplyButtons.forEach((b) => (b.disabled = false));
+  }, 700);
+}
+
+chatMessages.addEventListener("click", (e) => {
+  const opt = e.target.closest(".demo-menu-option");
+  if (opt) handleMenuOptionClick.call(opt);
+
+  const slotOpt = e.target.closest(".demo-slot-option");
+  if (slotOpt) showSlotConfirmation(slotOpt.getAttribute("data-slot"));
+
 });
 
 // Counter animation
@@ -263,3 +337,46 @@ document.querySelectorAll(".faq-question").forEach((question) => {
     if (!isOpen) item.classList.add("open");
   });
 });
+
+// Trial modal
+const trialModal = document.getElementById("trialModal");
+const trialModalBackdrop = document.getElementById("trialModalBackdrop");
+const trialModalClose = document.getElementById("trialModalClose");
+
+if (trialModal) {
+  function openTrialModal() {
+    trialModal.classList.add("open");
+    trialModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    if (mobileDrawer && mobileDrawer.classList.contains("open")) toggleMobileMenu();
+  }
+
+  function closeTrialModal() {
+    trialModal.classList.remove("open");
+    trialModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    const form = document.getElementById("trialForm");
+    const successEl = document.getElementById("trialFormSuccess");
+    const errorEl = document.getElementById("trialFormError");
+    if (form) form.style.display = "";
+    if (form) form.reset();
+    if (successEl) successEl.style.display = "none";
+    if (errorEl) errorEl.style.display = "none";
+  }
+
+  document.querySelectorAll(".open-trial-modal").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      openTrialModal();
+    });
+  });
+
+  if (trialModalClose) trialModalClose.addEventListener("click", closeTrialModal);
+  if (trialModalBackdrop) trialModalBackdrop.addEventListener("click", closeTrialModal);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && trialModal.classList.contains("open")) {
+      closeTrialModal();
+    }
+  });
+}
