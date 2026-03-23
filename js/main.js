@@ -345,6 +345,7 @@ const trialModalClose = document.getElementById("trialModalClose");
 
 if (trialModal) {
   function openTrialModal() {
+    trialModal.removeAttribute("hidden");
     trialModal.classList.add("open");
     trialModal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
@@ -352,6 +353,7 @@ if (trialModal) {
   }
 
   function closeTrialModal() {
+    trialModal.setAttribute("hidden", "");
     trialModal.classList.remove("open");
     trialModal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";

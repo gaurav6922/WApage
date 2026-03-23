@@ -221,12 +221,19 @@
   padding: 20px;
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: opacity 300ms, visibility 300ms;
 }
 
 .trial-modal.open {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
+}
+
+/* Ensure modal stays hidden without JS - hidden attr fallback */
+.trial-modal[hidden] {
+  display: none !important;
 }
 
 .trial-modal-backdrop {
