@@ -1084,11 +1084,15 @@
 }
 
 .plan-cta {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   text-align: center;
   width: 100%;
   height: 46px;
+  padding: 0 16px;
+  line-height: 1;
   border-radius: var(--radius-full);
   font-weight: 600;
   font-size: 15px;
