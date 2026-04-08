@@ -95,56 +95,35 @@
     transform: none;
   }
 
-  .pricing-stack-grid {
-    grid-template-columns: 1fr;
-  }
-
   .pricing-setup-grid {
     grid-template-columns: 1fr;
   }
 
-  .pricing-stack-head h3,
-  .pricing-pilot-box h3 {
-    font-size: 24px;
+  .pricing-extra-title {
+    font-size: 22px;
   }
 
-  .pricing-value-stack,
-  .pricing-pilot-box {
+  .pricing-extra-card {
     padding: 22px;
   }
 
-  .pricing-pilot-box {
+  .pricing-extras-row {
     grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .pricing-pilot-right {
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-  }
-
-  .pricing-pilot-btn {
-    max-width: 100%;
+    gap: 16px;
   }
 
   .testimonial-card {
     width: 100%;
   }
 
+  .carousel-container {
+    gap: 8px;
+  }
+
   .carousel-nav {
     width: 36px;
     height: 36px;
   }
-
-  .carousel-prev {
-    left: -10px;
-  }
-
-  .carousel-next {
-    right: -10px;
-  }
-
 
   .section {
     padding: 64px 0;
@@ -184,12 +163,11 @@
     padding: 0 16px;
   }
 
-  .pricing-stack-head h3,
-  .pricing-pilot-box h3 {
-    font-size: 22px;
+  .pricing-extra-title {
+    font-size: 20px;
   }
 
-  .pricing-pilot-price {
-    font-size: 52px;
+  .pricing-extra-amount {
+    font-size: 30px;
   }
 }
