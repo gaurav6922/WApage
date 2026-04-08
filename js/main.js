@@ -15,6 +15,7 @@ window.addEventListener("scroll", () => {
 // Theme toggle (light/dark)
 const themeToggle = document.getElementById("themeToggle");
 const mobileThemeToggle = document.getElementById("mobileThemeToggle");
+const mobileThemeLabel = document.querySelector("#mobileThemeToggle .theme-toggle-label");
 const root = document.documentElement;
 const savedTheme = localStorage.getItem("theme-preference");
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
@@ -38,8 +39,7 @@ function applyTheme(theme) {
     mobileThemeToggle.setAttribute("aria-pressed", String(isDark));
     const iconEl = mobileThemeToggle.querySelector(".theme-toggle-icon");
     if (iconEl) iconEl.textContent = icon;
-    const labelEl = mobileThemeToggle.querySelector(".theme-toggle-label");
-    if (labelEl) labelEl.textContent = label;
+    if (mobileThemeLabel) mobileThemeLabel.textContent = label;
   }
 }
 
@@ -53,6 +53,12 @@ function toggleTheme() {
 applyTheme(resolveInitialTheme());
 if (themeToggle) themeToggle.addEventListener("click", toggleTheme);
 if (mobileThemeToggle) mobileThemeToggle.addEventListener("click", toggleTheme);
+
+// Safari/mobile bfcache can restore stale button text; re-sync on pageshow.
+window.addEventListener("pageshow", () => {
+  const currentTheme = root.getAttribute("data-theme") === "light" ? "light" : "dark";
+  applyTheme(currentTheme);
+});
 
 prefersDark.addEventListener("change", (event) => {
   if (!localStorage.getItem("theme-preference")) {
