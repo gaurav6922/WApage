@@ -28,6 +28,7 @@ function applyTheme(theme) {
   root.setAttribute("data-theme", theme);
   const isDark = theme === "dark";
   const icon = isDark ? "☀️" : "🌙";
+  const label = isDark ? "Light mode" : "Dark mode";
   if (themeToggle) {
     themeToggle.setAttribute("aria-pressed", String(isDark));
     const iconEl = themeToggle.querySelector(".theme-toggle-icon");
@@ -37,6 +38,8 @@ function applyTheme(theme) {
     mobileThemeToggle.setAttribute("aria-pressed", String(isDark));
     const iconEl = mobileThemeToggle.querySelector(".theme-toggle-icon");
     if (iconEl) iconEl.textContent = icon;
+    const labelEl = mobileThemeToggle.querySelector("span:last-child");
+    if (labelEl) labelEl.textContent = label;
   }
 }
 
