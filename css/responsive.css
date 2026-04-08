@@ -15,6 +15,10 @@
     display: flex;
   }
 
+  .navbar-actions .theme-toggle {
+    display: none;
+  }
+
   .hero {
     grid-template-columns: 1fr;
     gap: 48px;
@@ -91,6 +95,39 @@
     transform: none;
   }
 
+  .pricing-stack-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-setup-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-stack-head h3,
+  .pricing-pilot-box h3 {
+    font-size: 24px;
+  }
+
+  .pricing-value-stack,
+  .pricing-pilot-box {
+    padding: 22px;
+  }
+
+  .pricing-pilot-box {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pricing-pilot-right {
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+  }
+
+  .pricing-pilot-btn {
+    max-width: 100%;
+  }
+
   .testimonial-card {
     width: 100%;
   }
@@ -145,5 +182,14 @@
 
   .container {
     padding: 0 16px;
+  }
+
+  .pricing-stack-head h3,
+  .pricing-pilot-box h3 {
+    font-size: 22px;
+  }
+
+  .pricing-pilot-price {
+    font-size: 52px;
   }
 }

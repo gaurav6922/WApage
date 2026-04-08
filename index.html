@@ -42,6 +42,9 @@
       </div>
 
       <div class="navbar-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+        </button>
         <a href="#" class="navbar-cta open-trial-modal">Start free trial</a>
         <div class="hamburger" id="hamburger">
           <div class="hamburger-line"></div>
@@ -62,6 +65,10 @@
       <li><a href="#testimonials">Testimonials</a></li>
     </ul>
     <div class="mobile-actions">
+      <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+        <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+        <span>Dark mode</span>
+      </button>
       <a href="#" class="navbar-cta open-trial-modal">Start free trial</a>
     </div>
   </div>
@@ -535,14 +542,12 @@ Select a preferred date/time:
           </div>
           <a href="#" class="plan-cta outlined open-trial-modal">Start free trial</a>
           <ul class="feature-list">
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">WhatsApp bot booking</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Automated reminders</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Patient records (500 patients)</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Today's queue dashboard</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Hindi + English support</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">200 appointments/month</div></li>
-            <li class="feature-item disabled"><div class="feature-check no">✗</div><div class="feature-text">Analytics dashboard</div></li>
-            <li class="feature-item disabled"><div class="feature-check no">✗</div><div class="feature-text">Staff logins</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Appointment management</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Patient database</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Daily queue management</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">WhatsApp chat inbox</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Auto-greeting messages</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Clinic calendar</div></li>
           </ul>
         </div>
 
@@ -556,14 +561,12 @@ Select a preferred date/time:
           <a href="#" class="plan-cta filled open-trial-modal">Start free trial</a>
           <div class="plan-note">Most doctors recover this in 2 prevented no-shows</div>
           <ul class="feature-list">
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Everything in Starter</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Unlimited appointments</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Unlimited patient records</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Full analytics dashboard</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">3 staff logins</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">No-show risk scoring</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Post-visit follow-up flows</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Priority WhatsApp support</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Auto-booking via WhatsApp</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Auto reminders (24hr + 2hr)</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Reschedule/cancel via WhatsApp</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Patient data auto-capture</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">No-show &amp; repeat patient reports</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Weekly clinic summary on WhatsApp</div></li>
           </ul>
         </div>
 
@@ -575,13 +578,80 @@ Select a preferred date/time:
           </div>
           <button class="plan-cta outlined">Contact us</button>
           <ul class="feature-list">
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Everything in Growth</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Multiple doctors</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Multiple locations</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Custom bot flows</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">API access</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Dedicated onboarding call</div></li>
-            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">SLA-backed support</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Broadcast campaigns</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Patient reactivation campaigns</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Follow-up automation flows</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Advanced chatbot</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Advanced analytics</div></li>
+            <li class="feature-item"><div class="feature-check yes">✓</div><div class="feature-text">Priority WhatsApp + call support</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pricing-value-stack animate-ready">
+        <div class="pricing-stack-head">
+          <h3>Not just software.<br>A complete patient booking system.</h3>
+          <p>Everything below is included in your plan so your clinic team can focus on patients, not manual follow-ups.</p>
+        </div>
+        <div class="pricing-stack-grid">
+          <div class="pricing-stack-item">
+            <h4>WhatsApp Booking System</h4>
+            <p>Patients can book 24/7 on WhatsApp with instant confirmations and no extra app downloads.</p>
+          </div>
+          <div class="pricing-stack-item">
+            <h4>2-Step Reminder Engine</h4>
+            <p>Automated reminders at key times to cut no-shows and reduce reception workload.</p>
+          </div>
+          <div class="pricing-stack-item">
+            <h4>Patient Data & Queue Workflow</h4>
+            <p>Patient details and daily queues stay organized in one workflow your team can actually use.</p>
+          </div>
+          <div class="pricing-stack-item">
+            <h4>Staff Onboarding Support</h4>
+            <p>Guided setup and handholding support so your front desk can go live without confusion.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-setup-section animate-ready">
+        <h3>One-time setup fee</h3>
+        <p>Covers WhatsApp API activation, initial setup, migration support, and onboarding.</p>
+        <div class="pricing-setup-grid">
+          <div class="pricing-setup-card">
+            <h4>Solo Clinic</h4>
+            <p>1 doctor · 1 location<br>Up to 15 patients/day</p>
+            <div class="pricing-setup-fee">₹5,000 <span>one-time</span></div>
+          </div>
+          <div class="pricing-setup-card">
+            <h4>Growing Clinic</h4>
+            <p>2-3 doctors · 1 location<br>15-50 patients/day</p>
+            <div class="pricing-setup-fee">₹10,000 <span>one-time</span></div>
+          </div>
+          <div class="pricing-setup-card">
+            <h4>Multi-Doctor / Chain</h4>
+            <p>4+ doctors · multiple locations<br>50+ patients/day</p>
+            <div class="pricing-setup-fee">₹20,000 <span>one-time</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-pilot-box animate-ready">
+        <div class="pricing-pilot-left">
+          <div class="pricing-pilot-label">✦ FOR NEW CLINICS</div>
+          <h3>Try it on your real clinic.<br>Risk: ₹2,000.</h3>
+          <p>For 30 days, run the full Growth system - auto-booking, reminders, patient capture - on your actual clinic, with your real patients. No setup fee. No commitment.</p>
+          <p>If you don't see fewer no-shows and less reception stress within 30 days, don't continue. You're out ₹2,000 and we part as friends.</p>
+          <p>If it works - which it will - you'll know exactly what a full appointment book feels like before signing anything.</p>
+        </div>
+        <div class="pricing-pilot-right">
+          <div class="pricing-pilot-price">₹2,000</div>
+          <div class="pricing-pilot-note">flat · 30 days · full Growth features</div>
+          <a href="#" class="pricing-pilot-btn open-trial-modal">Start My Pilot →</a>
+          <ul class="pricing-pilot-points">
+            <li>No setup fee</li>
+            <li>No lock-in</li>
+            <li>Full Growth features</li>
+            <li>Cancel anytime</li>
           </ul>
         </div>
       </div>

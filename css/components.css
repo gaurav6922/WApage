@@ -18,6 +18,10 @@
   box-shadow: var(--shadow-sm);
 }
 
+:root[data-theme="dark"] .navbar {
+  background: rgba(10, 18, 14, 0.92);
+}
+
 .navbar .container {
   height: 100%;
   display: flex;
@@ -89,6 +93,29 @@
 
 .navbar-cta:active {
   transform: scale(0.98);
+}
+
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  border-color: var(--border-strong);
+  color: var(--primary);
+}
+
+.theme-toggle-icon {
+  font-size: 15px;
+  line-height: 1;
 }
 
 /* Hamburger & Mobile Drawer */
@@ -173,6 +200,16 @@
   flex-direction: column;
   gap: 10px;
   margin-top: 20px;
+}
+
+.mobile-theme-toggle {
+  width: 100%;
+  height: 44px;
+  border-radius: var(--radius-full);
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .mobile-actions .navbar-signin,
@@ -323,6 +360,8 @@
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-white);
   transition: border-color var(--transition-fast);
 }
 
@@ -338,9 +377,18 @@
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   font-family: inherit;
-  background: white;
+  background: var(--bg-white);
+  color: var(--text-primary);
   cursor: pointer;
   transition: border-color var(--transition-fast);
+}
+
+.trial-form input::placeholder {
+  color: var(--text-muted);
+}
+
+.trial-form select:required:invalid {
+  color: var(--text-muted);
 }
 
 .trial-form select:focus {
