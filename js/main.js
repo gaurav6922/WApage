@@ -38,7 +38,7 @@ function applyTheme(theme) {
     mobileThemeToggle.setAttribute("aria-pressed", String(isDark));
     const iconEl = mobileThemeToggle.querySelector(".theme-toggle-icon");
     if (iconEl) iconEl.textContent = icon;
-    const labelEl = mobileThemeToggle.querySelector("span:last-child");
+    const labelEl = mobileThemeToggle.querySelector(".theme-toggle-label");
     if (labelEl) labelEl.textContent = label;
   }
 }
