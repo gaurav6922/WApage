@@ -268,9 +268,24 @@ if (billingToggle) {
   const isYearly = this.classList.contains("active");
 
   document.querySelectorAll(".price-amount").forEach((el) => {
+    const monthlyPrice = el.getAttribute("data-monthly");
+    const yearlyPrice = el.getAttribute("data-yearly");
+    const planPrice = el.closest(".plan-price");
+    const oldPriceEl = planPrice ? planPrice.querySelector(".price-old") : null;
+    const periodEl = planPrice ? planPrice.querySelector(".price-period") : null;
+
     el.textContent = isYearly
-      ? el.getAttribute("data-yearly")
-      : el.getAttribute("data-monthly");
+      ? yearlyPrice
+      : monthlyPrice;
+
+    if (oldPriceEl) {
+      oldPriceEl.textContent = `₹${monthlyPrice}`;
+      oldPriceEl.style.display = isYearly ? "inline" : "none";
+    }
+
+    if (periodEl) {
+      periodEl.textContent = "/month";
+    }
   });
 });
 }
